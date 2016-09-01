@@ -120,6 +120,8 @@ public class FirebaseNotificationService extends Service {
 
 
     private void showNotification(Context context, Notification notification, String notification_key){
+        flagNotificationAsSent(notification_key);
+
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(notification.getDescription())
@@ -152,7 +154,6 @@ public class FirebaseNotificationService extends Service {
         NotificationManager mNotificationManager =  (NotificationManager)context. getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(1, mBuilder.build());
 
-        flagNotificationAsSent(notification_key);
     }
 
     private void flagNotificationAsSent(String notification_key) {
@@ -160,7 +161,7 @@ public class FirebaseNotificationService extends Service {
                 .child(firebaseAuth.getCurrentUser().getUid())
                 .child(notification_key)
                 .child("status")
-                .setValue(0);
+                .setValue(1);
     }
 
 
