@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if(toolBar != null){
             setSupportActionBar(toolBar);
             getSupportActionBar().setTitle("Users");
+            getSupportActionBar().setSubtitle("Click button to notify user");
         }
 
         setUpRecyclerView();
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendNotificationToUser(User user) {
         if(!user.getId().equals(mAuth.getCurrentUser().getUid())){
-            Utilities.sendNotification(
+            Utilities.sendNotification(this,
                     user.getId(),
                     "A new notification from "+mAuth.getCurrentUser().getEmail(),
                     "New Notification",
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchUsersOnline() {
         DatabaseReference databaseRef = mDatabase.getReference("users");
-        mPostRef = databaseRef.orderByPriority().limitToFirst(500);
+        mPostRef = databaseRef.orderByPriority().limitToLast(500);
 
         Log.d("dataSnapshot",String.valueOf(mPostRef));
 

@@ -1,5 +1,8 @@
 package com.appsng.firebaseapptoappnotification.reusables;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.appsng.firebaseapptoappnotification.models.Notification;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,7 +19,7 @@ import java.util.Map;
 public class Utilities {
 
 
-    public static void sendNotification(String user_id,String message,String description,String type){
+    public static void sendNotification(final Context context,String user_id, String message, String description, String type){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("notifications").child(user_id);
         String pushKey = databaseReference.push().getKey();
 
@@ -34,7 +37,7 @@ public class Utilities {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError == null){
-
+                    Toast.makeText(context,"Notification sent",Toast.LENGTH_LONG).show();
                 }
             }
         });
