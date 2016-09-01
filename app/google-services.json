@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "740007122964",
+    "firebase_url": "https://tutorialprojects-bf897.firebaseio.com",
+    "project_id": "tutorialprojects-bf897",
+    "storage_bucket": "tutorialprojects-bf897.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740007122964:android:3fc3f4b9c57ff416",
+        "android_client_info": {
+          "package_name": "com.appsng.firebaseapptoappnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740007122964-7tb4uoshealghcm8dnriks7vpjah99dd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzkZnQctlk5WhTsR2sVUbalqusiERAO48"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
